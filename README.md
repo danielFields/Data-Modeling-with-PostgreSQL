@@ -47,7 +47,7 @@ Log data is series of log files from the music listening appplication that detai
 ```
 
 ## Schema Structure
-The data in this database is organized into a star schema consisiting of the 1 fact table detailing songs listened to and by who in addition to 4 different dimension tables that add context to the user activity data generated from log files. 
+The data in this database is organized into a star schema consisiting of the 1 fact table detailing songs listened to and by who in addition to 4 different dimension tables that add context to the user activity data generated from log files.   
 \* = Primary Key   
 \** = Foreign Key
 
