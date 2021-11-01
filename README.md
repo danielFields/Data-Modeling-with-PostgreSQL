@@ -48,51 +48,8 @@ Log data is series of log files from the music listening appplication that detai
 
 ## Schema Structure
 The data in this database is organized into a star schema consisiting of the 1 fact table detailing songs listened to and by who in addition to 4 different dimension tables that add context to the user activity data generated from log files.   
-\* = Primary Key   
-\** = Foreign Key
 
-#### _Fact Table_
-1. **Songplays** - Records In Log Data Associated With Song Plays (Source: Log + Song Data)
-    1. SONGPLAY_ID*
-    2. START_TIME**
-    3. USER_ID**
-    4. LEVEL 
-    5. SONG_ID**
-    6. ARTIST_ID**
-    7. SESSION_ID 
-    8. LOCATION
-    9. USER_AGENT
-
-#### _Dimension Tables_
-2. **Users** - Users In The App (Source: Log Data)
-    1. USER_ID*
-    2. FIRST_NAME
-    3. LAST_NAME 
-    4. GENDER 
-    5. LEVEL
-
-3. **Songs** - Songs In Music Database (Source: Song Data)
-    1. SONG_ID*
-    2. TITLE
-    3. ARTIST_ID** 
-    4. YEAR 
-    5. DURATION
-
-4. **Artists** - Artists In Music Database (Source: Song Data)
-    1. ARTIST_ID*
-    2. NAME
-    3. LOCATION
-    4. LATITUDE 
-    5. LONGITUDE
-
-5. **Time** - Timestamps Of Records In Songplays Broken Down Into Specific Units (Source: Log Data)
-    1. START_TIME*
-    2. HOUR 
-    3. DAY 
-    4. WEEK 
-    5. MONTH 
-    6. YEAR 
-    7. WEEKDAY
+![Schema ERD](Song_ERD.png)
 
 
 
