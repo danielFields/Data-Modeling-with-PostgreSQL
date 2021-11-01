@@ -122,4 +122,6 @@ LIMIT 10;
  LIMIT 1;
  ```
  
- 
+ To run ETL Process run `create_tables.py` before `etl.py` or use one of the command-line scripts that runs both in order.  
+ If on a Windows machine run `run_pipeline.bat`
+ If on a Unix machine run `run_pipeline.sh`
