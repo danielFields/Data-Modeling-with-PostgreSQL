@@ -1,4 +1,4 @@
-# Data-Modeling-with-PostgreSQL
+# Data Modeling with PostgreSQL
 This project creates and executes an ETL pipeline for a mock musicstreaming application. This was made during an assignment from the [Udacity Data Engineering Nanodegree](https://www.udacity.com/course/data-engineer-nanodegree--nd027).
 
 # Purpose of Database
