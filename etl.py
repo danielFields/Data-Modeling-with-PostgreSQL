@@ -42,16 +42,14 @@ def process_log_file(cur, filepath):
     6: 'Saturday'}
     
     # convert timestamp column to datetime and exract relevant fields from datetime object
-    time_df = pd.DataFrame(df['ts'])
-    time_df['stamp'] = time_df['ts'].apply(lambda x: pd.to_datetime(x, unit = 'ms'))
-    time_df['hour'] = time_df['stamp'].apply(lambda x: x.hour)
-    time_df['day'] = time_df['stamp'].apply(lambda x: x.day)
-    time_df['week'] = time_df['stamp'].apply(lambda x: x.week)
-    time_df['month'] = time_df['stamp'].apply(lambda x: x.month)
-    time_df['year'] = time_df['stamp'].apply(lambda x: x.year)
-    time_df['weekday'] = time_df['stamp'].apply(lambda x: x.dayofweek).map(weekdays)
+    time_df = pd.DataFrame(df['ts'].apply(lambda x: pd.to_datetime(x, unit = 'ms')))
+    time_df['hour'] = time_df['ts'].apply(lambda x: x.hour)
+    time_df['day'] = time_df['ts'].apply(lambda x: x.day)
+    time_df['week'] = time_df['ts'].apply(lambda x: x.week)
+    time_df['month'] = time_df['ts'].apply(lambda x: x.month)
+    time_df['year'] = time_df['ts'].apply(lambda x: x.year)
+    time_df['weekday'] = time_df['ts'].apply(lambda x: x.dayofweek).map(weekdays)
     time_df= time_df[['ts','hour','day','week','month','year','weekday']]
-
     
     # insert time data records
     for i, row in time_df.iterrows():
@@ -77,7 +75,7 @@ def process_log_file(cur, filepath):
             songid, artistid = None, None
         
         # insert songplay record
-        songplay_data = (row.ts,row.userId, row.level, songid, artistid, row.sessionId,row.location,row.userAgent)
+        songplay_data = (pd.to_datetime(row.ts, unit = 'ms'),row.userId, row.level, songid, artistid, row.sessionId,row.location,row.userAgent)
 
         cur.execute(songplay_table_insert, songplay_data)
 
